@@ -14,9 +14,22 @@ class _introPageState extends State<IntroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text('Pet adopt'),
+        title: Container(
+          margin: const EdgeInsets.only(
+            left: 110,
+          ),
+          padding: const EdgeInsets.only(bottom: 10),
+          child: const Text(
+            'Pet Adopt',
+            style: TextStyle(
+              fontSize: 32,
+              color: Color.fromARGB(255, 103, 86, 139),
+            ),
+          ),
         ),
+        actions: <Widget>[
+          ElevatedButton( onPressed: () {}, child: const Text('Login'))
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -25,28 +38,57 @@ class _introPageState extends State<IntroPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.only(bottom: 30),
                   child: Container(
-                    child: const Column(
-                      children: [
-                        Text('Image'),
-                      ],
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(140),
+                        topRight: Radius.circular(140),
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                      ),
+                    ),
+                    clipBehavior: Clip
+                        .antiAlias, // Necessário para o Container recortar a imagem
+                    child: Image.asset(
+                      'assets/images/pet-1.jpg', // Substitua pelo caminho da sua imagem
+                      fit: BoxFit.cover,
+                      width: 300,
                     ),
                   ),
                 ),
               ],
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
+                  height: 120,
                   width: 300,
-                  decoration: const BoxDecoration(color: Colors.blue),
-                  child: const Column(
+                  child: Column(
                     children: [
-                      Text('Find your new friends'),
                       Text(
-                          'Make your life more happy with us to have a little new friends')
+                        'Find your new friends',
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.80,
+                          fontFamily: 'Poppins',
+                          color: Color.fromARGB(255, 78, 65, 105),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 15, right: 15, top: 10, bottom: 20),
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          'Make your life more happy with us to have a little new friends',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Color.fromARGB(255, 66, 55, 89),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -55,7 +97,7 @@ class _introPageState extends State<IntroPage> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => Register()),
+                  MaterialPageRoute(builder: (context) => const Register()),
                 );
               },
               child: const Text('Get Started'),
