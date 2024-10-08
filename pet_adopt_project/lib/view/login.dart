@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pet_adopt_project/view/intro.dart';
 
-// import 'package:pet_adopt_project/models/user_model.dart';
-
-class Register extends StatefulWidget {
-  const Register({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _RegisterState createState() => _RegisterState();
+  State<Login> createState() => _LoginState();
 }
 
-class _RegisterState extends State<Register> {
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +33,7 @@ class _RegisterState extends State<Register> {
             alignment: Alignment.center,
             height: 100,
             child: const Text(
-              'Cadastro',
+              'Login',
               style: TextStyle(
                 color: Colors.white, // Cor do texto para melhor visibilidade
                 fontWeight: FontWeight.bold,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_adopt_project/view/cadastro.dart';
+import 'package:pet_adopt_project/view/login.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -15,21 +16,18 @@ class _introPageState extends State<IntroPage> {
     return Scaffold(
       appBar: AppBar(
         title: Container(
-          margin: const EdgeInsets.only(
-            left: 110,
-          ),
+          margin: const EdgeInsets.only(top: 10),
+          alignment: Alignment.center,
           padding: const EdgeInsets.only(bottom: 10),
           child: const Text(
             'Pet Adopt',
             style: TextStyle(
               fontSize: 32,
               color: Color.fromARGB(255, 103, 86, 139),
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
-        actions: <Widget>[
-          ElevatedButton( onPressed: () {}, child: const Text('Login'))
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -38,7 +36,7 @@ class _introPageState extends State<IntroPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 30),
+                  padding: const EdgeInsets.only(bottom: 30, top: 20),
                   child: Container(
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -94,13 +92,51 @@ class _introPageState extends State<IntroPage> {
                 ),
               ],
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const Register()),
-                );
-              },
-              child: const Text('Get Started'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: const ButtonStyle(
+                    padding: WidgetStatePropertyAll(EdgeInsets.only(
+                        left: 40, right: 40, top: 20, bottom: 20)),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => const Register()),
+                    );
+                  },
+                  child: const Text(
+                    'Register',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 20),
+                  child: ElevatedButton(
+                    style: const ButtonStyle(
+                        padding: WidgetStatePropertyAll(EdgeInsets.only(
+                            left: 40, right: 40, top: 20, bottom: 20)),
+                        foregroundColor: WidgetStatePropertyAll(Colors.white),
+                        backgroundColor: WidgetStatePropertyAll(
+                            Color.fromARGB(150, 124, 77, 255))),
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => const Login()),
+                      );
+                    },
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+              ],
             )
           ],
         ),
