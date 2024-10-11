@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_adopt_project/view/intro.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,10 +13,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
-          Icons.dehaze,
-          size: 30,
-        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => const IntroPage()),
+              );
+            },
+            icon: const Icon(Icons.dehaze)),
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 10),
@@ -147,7 +151,10 @@ class _HomeState extends State<Home> {
             ),
             Container(
               margin: const EdgeInsets.only(top: 20, bottom: 20),
-              padding: const EdgeInsets.only(left: 5, right: 5),
+              padding: const EdgeInsets.only(
+                left: 5,
+                right: 5,
+              ),
               height: 120,
               width: 370,
               child: Column(
@@ -178,6 +185,7 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
+                        margin: const EdgeInsets.only(top: 5),
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(
@@ -219,24 +227,65 @@ class _HomeState extends State<Home> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 20),
-              height: 100,
+              height: 50,
               width: 370,
-              color: const Color.fromARGB(150, 124, 77, 255),
-              child: Column(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      const Text('Adopt pet'),
-                      TextButton(onPressed: () {}, child: const Text('see all'))
-                    ],
+                  const Text(
+                    'Adopt Pet',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(150, 124, 77, 255),
+                        fontSize: 20),
                   ),
-                  const Row(
-                    children: [Text('Card')],
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'See All',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 100, 62, 204),
+                        fontSize: 16,
+                      ),
+                    ),
                   )
                 ],
               ),
             ),
+            Container(
+              padding: const EdgeInsets.only(left: 5),
+              width: 370,
+              height: 300,
+              child: Row(
+                children: [
+                  Container(
+                    width: 200,
+                    height: 250,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      color: Color.fromARGB(95, 77, 98, 255),
+                    ),
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                          clipBehavior: Clip.antiAlias,
+                          height: 150,
+                          width: 200,
+                          child: Image.asset(
+                            'assets/images/gatinho.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Container(),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
