@@ -261,9 +261,18 @@ class _HomeState extends State<Home> {
                   Container(
                     width: 200,
                     height: 250,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                      color: Color.fromARGB(95, 77, 98, 255),
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
+                      color: Colors.white, // Cor de fundo do Container
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(255, 0, 0, 0)
+                              .withOpacity(0.15), // Cor da sombra
+                          spreadRadius: 10, // Espalhamento da sombra
+                          blurRadius: 10, // Desfoque da sombra
+                          offset: const Offset(0, 5), // Posição da sombra
+                        ),
+                      ],
                     ),
                     child: Column(
                       children: [
@@ -279,7 +288,55 @@ class _HomeState extends State<Home> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        Container(),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              const Text(
+                                'Samantha',
+                                style:
+                                    TextStyle(fontSize: 20, color: Colors.pink),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(2),
+                                decoration: const BoxDecoration(
+                                    color: Color.fromARGB(50, 233, 30, 98),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromARGB(100, 255, 0, 0),
+                                        blurRadius: 10,
+                                        offset: Offset(0, 0),
+                                      )
+                                    ]),
+                                child: const Icon(
+                                  Icons.female,
+                                  size: 30,
+                                  color: Colors.pink,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(left: 15),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.location_on_outlined,
+                                color: Colors.deepPurpleAccent,
+                              ),
+                              Text(
+                                'California (2,5km)',
+                                style: TextStyle(fontSize: 12),
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
