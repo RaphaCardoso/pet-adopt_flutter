@@ -48,8 +48,9 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.only(left: 20),
                     decoration: BoxDecoration(
                       border: Border.all(
-                          width: 0.5,
-                          color: const Color.fromARGB(255, 0, 0, 0)),
+                        width: 0.5,
+                        color: const Color.fromARGB(100, 124, 77, 255),
+                      ),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextField(
@@ -57,7 +58,7 @@ class _HomeState extends State<Home> {
                           suffixIcon: Container(
                             width: 50,
                             decoration: BoxDecoration(
-                                color: Colors.deepPurpleAccent,
+                                color: const Color.fromARGB(100, 124, 77, 255),
                                 borderRadius: BorderRadius.circular(10)),
                             child: const Icon(
                               Icons.search,
@@ -77,22 +78,67 @@ class _HomeState extends State<Home> {
             ),
             Container(
               margin: const EdgeInsets.only(top: 20),
-              height: 250,
+              height: 150,
               width: 370,
-              color: const Color.fromARGB(150, 124, 77, 255),
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(100, 124, 77, 255),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20),
+                ),
+              ),
+              clipBehavior: Clip.antiAlias,
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        children: [
-                          const Text('Join our animal lovers community'),
-                          TextButton(
-                              onPressed: () {}, child: const Text('Join now'))
-                        ],
+                      Container(
+                        height: 150,
+                        width: 200,
+                        padding:
+                            const EdgeInsets.only(left: 10, top: 5, bottom: 5),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Text(
+                              'Join our animal lovers community',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                              ),
+                              softWrap: true,
+                              textAlign: TextAlign.center,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(0.5),
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
+                                color: Colors.white,
+                              ),
+                              child: TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'Join now',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                      const Column(
-                        children: [Text('Image')],
+                      SizedBox(
+                        height: 150,
+                        width: 170,
+                        child: Image.asset(
+                          'assets/images/donoPet.png',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ],
                   )
@@ -100,24 +146,75 @@ class _HomeState extends State<Home> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 20),
-              height: 100,
+              margin: const EdgeInsets.only(top: 20, bottom: 20),
+              padding: const EdgeInsets.only(left: 5, right: 5),
+              height: 120,
               width: 370,
-              color: const Color.fromARGB(150, 124, 77, 255),
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Pet Categories'),
+                      const Text(
+                        'Pet Categories',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(150, 124, 77, 255),
+                            fontSize: 20),
+                      ),
                       TextButton(
-                          onPressed: () {}, child: const Text('more category'))
+                        onPressed: () {},
+                        child: const Text(
+                          'more category',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 100, 62, 204),
+                            fontSize: 16,
+                          ),
+                        ),
+                      )
                     ],
                   ),
-                  const Row(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Icon(Icons.pets),
+                      Container(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                          color: Color.fromARGB(95, 77, 98, 255),
+                        ),
+                        width: 100,
+                        height: 60,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              decoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                              ),
+                              clipBehavior: Clip.antiAlias,
+                              height: 40,
+                              width: 40,
+                              child: Image.asset(
+                                'assets/images/gatinho.jpg',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const Text(
+                              'Cat',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontSize: 20),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
