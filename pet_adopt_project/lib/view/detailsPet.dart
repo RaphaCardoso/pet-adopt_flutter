@@ -55,12 +55,12 @@ class _DetailsPetState extends State<DetailsPet> {
           ),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 600,
+              height: 550,
               width: double.infinity,
               child: Column(
                 children: [
                   Container(
-                    height: 250,
+                    height: 140,
                     decoration: BoxDecoration(
                       color: Colors.white, // Cor de fundo do Container
                       boxShadow: [
@@ -140,7 +140,7 @@ class _DetailsPetState extends State<DetailsPet> {
                           children: [
                             Container(
                               padding: const EdgeInsets.only(top: 20),
-                              height: 180,
+                              height: 140,
                               width: 100,
                               child: const Column(
                                 children: [
@@ -159,6 +159,130 @@ class _DetailsPetState extends State<DetailsPet> {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    width: 400,
+                    height: 200,
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(top: 40),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: 80,
+                                height: 120,
+                                padding: const EdgeInsets.only(top: 25),
+                                decoration: BoxDecoration(
+                                    color: Colors.deepPurple[100]),
+                                child: const Column(
+                                  children: [
+                                    Text(
+                                      'Breed',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: Colors.white),
+                                    ),
+                                    Text(
+                                      'Persian',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: 80,
+                                height: 120,
+                                padding: const EdgeInsets.only(top: 25),
+                                decoration: BoxDecoration(
+                                    color: Colors.deepPurple[100]),
+                                child: const Column(
+                                  children: [
+                                    Text(
+                                      'Color',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: Colors.white),
+                                    ),
+                                    Text(
+                                      'Orange',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: 80,
+                                height: 120,
+                                padding: const EdgeInsets.only(top: 25),
+                                decoration: BoxDecoration(
+                                    color: Colors.deepPurple[100]),
+                                child: const Column(
+                                  children: [
+                                    Text(
+                                      'Weight',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: Colors.white),
+                                    ),
+                                    Text(
+                                      '8 kg',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: 80,
+                                height: 120,
+                                padding: const EdgeInsets.only(top: 25),
+                                decoration: BoxDecoration(
+                                    color: Colors.deepPurple[100]),
+                                child: const Column(
+                                  children: [
+                                    Text(
+                                      'Age',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: Colors.white),
+                                    ),
+                                    Text(
+                                      '     20\n months',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: 400,
+                    height: 100,
+                    color: Colors.amber,
+                    child: const Row(
+                      children: [],
+                    ),
+                  )
                 ],
               ),
             ),

@@ -30,7 +30,7 @@ class _NewPetState extends State<NewPet> {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 10, right: 40, left: 40),
+              margin: const EdgeInsets.only(right: 40, left: 40),
               padding: const EdgeInsets.all(20),
               color: const Color.fromARGB(50, 124, 77, 255),
               child: Column(
