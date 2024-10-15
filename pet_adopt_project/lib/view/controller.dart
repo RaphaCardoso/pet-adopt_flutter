@@ -33,11 +33,7 @@ class _ControllerState extends State<Controller> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const IntroPage()),
-            );
-          },
+          onPressed: () {},
           icon: const Icon(
             Icons.dehaze,
             size: 28,

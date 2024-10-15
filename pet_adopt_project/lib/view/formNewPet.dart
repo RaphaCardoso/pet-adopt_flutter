@@ -9,6 +9,20 @@ class NewPet extends StatefulWidget {
 }
 
 class _NewPetState extends State<NewPet> {
+  int? _selectedGenderIndex;
+  String? gender;
+
+  void _onGenderChanged(int index) {
+    setState(() {
+      if (_selectedGenderIndex == index) {
+        _selectedGenderIndex = null;
+      } else {
+        _selectedGenderIndex = index;
+        gender = index == 0 ? 'masculino' : 'feminino';
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,13 +30,13 @@ class _NewPetState extends State<NewPet> {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 100, right: 40, left: 40),
+              margin: const EdgeInsets.only(top: 10, right: 40, left: 40),
               padding: const EdgeInsets.all(20),
               color: const Color.fromARGB(50, 124, 77, 255),
               child: Column(
                 children: [
                   const Text(
-                    'Pet adopt',
+                    'New Pet Form',
                     style: TextStyle(
                       fontSize: 32,
                       color: Color.fromARGB(255, 103, 86, 139),
@@ -33,90 +47,116 @@ class _NewPetState extends State<NewPet> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Padding(
-                        padding: EdgeInsets.only(
-                            left: 20.0, right: 20.0, top: 20, bottom: 10),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         child: TextField(
                           keyboardType: TextInputType.name,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Enter your username',
-                          ),
-                          cursorColor: Color.fromARGB(255, 255, 255, 255),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            labelText: 'Pet name',
                           ),
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(
-                            left: 20.0, right: 20.0, bottom: 10),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         child: TextField(
-                          keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Enter your email',
-                          ),
-                          cursorColor: Color.fromARGB(255, 255, 255, 255),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            labelText: 'Breed',
                           ),
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(
-                            left: 20.0, right: 20.0, bottom: 20),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         child: TextField(
-                          keyboardType: TextInputType.visiblePassword,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Enter your password',
+                            labelText: 'Color',
                           ),
-                          cursorColor: Color.fromARGB(255, 255, 255, 255),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                        ),
+                      ),
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Weight',
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Price',
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Age',
                           ),
                         ),
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            margin: const EdgeInsets.only(left: 20),
-                            child: ElevatedButton(
-                              style: const ButtonStyle(
-                                  padding: WidgetStatePropertyAll(
-                                      EdgeInsets.only(
-                                          left: 50,
-                                          right: 50,
-                                          top: 15,
-                                          bottom: 15)),
-                                  foregroundColor:
-                                      WidgetStatePropertyAll(Colors.white),
-                                  backgroundColor: WidgetStatePropertyAll(
-                                      Color.fromARGB(150, 124, 77, 255))),
-                              onPressed: () {
-                                Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) => const Home()),
-                                );
-                              },
-                              child: const Text(
-                                'Cadastrar',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                          Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text('Gender:'),
+                                  CheckboxExample(
+                                    label: 'Male',
+                                    index: 0,
+                                    isSelected: _selectedGenderIndex == 0,
+                                    onChanged: _onGenderChanged,
+                                  ),
+                                  CheckboxExample(
+                                    label: 'Female',
+                                    index: 1,
+                                    isSelected: _selectedGenderIndex == 1,
+                                    onChanged: _onGenderChanged,
+                                  ),
+                                ],
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) => const Home()),
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 50, vertical: 15),
+                                  backgroundColor:
+                                      const Color.fromARGB(150, 124, 77, 255),
+                                ),
+                                child: const Text(
+                                  'Register',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ],
@@ -125,6 +165,38 @@ class _NewPetState extends State<NewPet> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class CheckboxExample extends StatelessWidget {
+  final String label;
+  final int index;
+  final bool isSelected;
+  final ValueChanged<int> onChanged;
+
+  const CheckboxExample({
+    super.key,
+    required this.label,
+    required this.index,
+    required this.isSelected,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Checkbox(
+          value: isSelected,
+          onChanged: (bool? value) {
+            if (value == true || (value == false && isSelected)) {
+              onChanged(index);
+            }
+          },
+        ),
+        Text(label),
+      ],
     );
   }
 }

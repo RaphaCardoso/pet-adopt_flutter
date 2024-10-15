@@ -29,7 +29,7 @@ class _UserperfilState extends State<Userperfil> {
                     child: Image.asset(
                       'assets/images/donoPet.jpg',
                       fit: BoxFit.cover,
-                      width: 200,
+                      width: 210,
                     ),
                   ),
                 ),
@@ -148,8 +148,8 @@ class _UserperfilState extends State<Userperfil> {
                             Container(
                               width: 180,
                               height: 80,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.only(top: 15),
+                              padding: const EdgeInsets.all(5),
+                              margin: const EdgeInsets.only(top: 15),
                               decoration:
                                   const BoxDecoration(color: Colors.deepPurple),
                               child: TextButton(
