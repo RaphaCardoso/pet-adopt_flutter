@@ -36,7 +36,7 @@ class _UserperfilState extends State<Userperfil> {
               ],
             ),
             Container(
-              height: 250,
+              height: 280,
               decoration: BoxDecoration(
                 color: Colors.white, // Cor de fundo do Container
                 boxShadow: [
@@ -146,14 +146,21 @@ class _UserperfilState extends State<Userperfil> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
-                              width: 200,
-                              height: 100,
-                              padding: EdgeInsets.all(10),
+                              width: 180,
+                              height: 80,
+                              padding: EdgeInsets.all(5),
+                              margin: EdgeInsets.only(top: 15),
                               decoration:
-                                  const BoxDecoration(color: Colors.black),
+                                  const BoxDecoration(color: Colors.deepPurple),
                               child: TextButton(
                                   onPressed: () {},
-                                  child: const Text('Configure', style: ,)),
+                                  child: const Text(
+                                    'Configure',
+                                    style: TextStyle(
+                                      fontSize: 24,
+                                      color: Colors.white,
+                                    ),
+                                  )),
                             ),
                           ],
                         ),
