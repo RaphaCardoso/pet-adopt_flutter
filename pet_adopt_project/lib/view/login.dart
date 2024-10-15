@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_adopt_project/view/home.dart';
+import 'package:pet_adopt_project/view/controller.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -117,7 +117,7 @@ class _LoginState extends State<Login> {
                               onPressed: () {
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
-                                      builder: (context) => const Home()),
+                                      builder: (context) => const Controller()),
                                 );
                               },
                               child: const Text(

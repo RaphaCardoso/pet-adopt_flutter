@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pet_adopt_project/view/intro.dart';
+import 'package:pet_adopt_project/widgets/petCategory.dart';
+import 'package:pet_adopt_project/widgets/pets.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,73 +13,45 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => const IntroPage()),
-              );
-            },
-            icon: const Icon(Icons.dehaze)),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 10),
-            child: const Icon(
-              Icons.notifications_none,
-              size: 35,
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(right: 10),
-            child: const Icon(
-              size: 35,
-              Icons.person_4,
-            ),
-          )
-        ],
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              decoration: const BoxDecoration(),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                    width: 370,
-                    height: 50,
-                    padding: const EdgeInsets.only(left: 20),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 0.5,
-                        color: const Color.fromARGB(100, 124, 77, 255),
-                      ),
-                      borderRadius: BorderRadius.circular(10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  width: 370,
+                  height: 50,
+                  padding: const EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 0.5,
+                      color: const Color.fromARGB(100, 124, 77, 255),
                     ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                          suffixIcon: Container(
-                            width: 50,
-                            decoration: BoxDecoration(
-                                color: const Color.fromARGB(100, 124, 77, 255),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: const Icon(
-                              Icons.search,
-                              color: Colors.white,
-                            ),
-                          ),
-                          border: InputBorder.none,
-                          hintText: "Search",
-                          hintStyle: const TextStyle(
-                            fontSize: 20,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                          )),
-                    ),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                ],
-              ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        suffixIcon: Container(
+                          width: 50,
+                          decoration: BoxDecoration(
+                              color: const Color.fromARGB(100, 124, 77, 255),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                        ),
+                        border: InputBorder.none,
+                        hintText: "Search",
+                        hintStyle: const TextStyle(
+                          fontSize: 20,
+                          color: Color.fromARGB(255, 78, 48, 161),
+                        )),
+                  ),
+                ),
+              ],
             ),
             Container(
               margin: const EdgeInsets.only(top: 20),
@@ -150,13 +123,12 @@ class _HomeState extends State<Home> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 20, bottom: 20),
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
               padding: const EdgeInsets.only(
                 left: 5,
                 right: 5,
               ),
-              height: 120,
-              width: 370,
+              height: 110,
               child: Column(
                 children: [
                   Row(
@@ -181,52 +153,24 @@ class _HomeState extends State<Home> {
                       )
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 5),
-                        padding: const EdgeInsets.only(left: 10, right: 10),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20),
-                          ),
-                          color: Color.fromARGB(95, 77, 98, 255),
-                        ),
-                        width: 100,
-                        height: 60,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              decoration: const BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                              ),
-                              clipBehavior: Clip.antiAlias,
-                              height: 40,
-                              width: 40,
-                              child: Image.asset(
-                                'assets/images/gatinho.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            const Text(
-                              'Cat',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                  fontSize: 20),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                  const SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        petCategory(),
+                        petCategory(),
+                        petCategory(),
+                        petCategory(),
+                        petCategory(),
+                        petCategory(),
+                        petCategory(),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 50,
               width: 370,
               child: Row(
@@ -252,97 +196,16 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.only(left: 5),
-              width: 370,
-              height: 300,
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Container(
-                    width: 200,
-                    height: 250,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      color: Colors.white, // Cor de fundo do Container
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(255, 0, 0, 0)
-                              .withOpacity(0.15), // Cor da sombra
-                          spreadRadius: 10, // Espalhamento da sombra
-                          blurRadius: 10, // Desfoque da sombra
-                          offset: const Offset(0, 5), // Posição da sombra
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                          ),
-                          clipBehavior: Clip.antiAlias,
-                          height: 150,
-                          width: 200,
-                          child: Image.asset(
-                            'assets/images/gatinho.jpg',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              const Text(
-                                'Samantha',
-                                style:
-                                    TextStyle(fontSize: 20, color: Colors.pink),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.all(2),
-                                decoration: const BoxDecoration(
-                                    color: Color.fromARGB(50, 233, 30, 98),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color.fromARGB(100, 255, 0, 0),
-                                        blurRadius: 10,
-                                        offset: Offset(0, 0),
-                                      )
-                                    ]),
-                                child: const Icon(
-                                  Icons.female,
-                                  size: 30,
-                                  color: Colors.pink,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 10),
-                          padding: const EdgeInsets.only(left: 15),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.location_on_outlined,
-                                color: Colors.deepPurpleAccent,
-                              ),
-                              Text(
-                                'California (2,5km)',
-                                style: TextStyle(fontSize: 12),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  Pets(),
+                  Pets(),
+                  Pets(),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

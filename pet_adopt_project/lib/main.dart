@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pet_adopt_project/view/favoritePet.dart';
+import 'package:pet_adopt_project/view/formNewPet.dart';
 
 import 'package:pet_adopt_project/view/intro.dart';
 
