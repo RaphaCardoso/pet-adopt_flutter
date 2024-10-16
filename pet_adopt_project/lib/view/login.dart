@@ -47,7 +47,7 @@ class _LoginState extends State<Login> {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 100, right: 40, left: 40),
+              margin: const EdgeInsets.only(top: 150, right: 40, left: 40),
               padding: const EdgeInsets.all(20),
               color: const Color.fromARGB(50, 124, 77, 255),
               child: Column(

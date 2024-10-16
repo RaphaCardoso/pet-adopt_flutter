@@ -27,7 +27,7 @@ class _UserperfilState extends State<Userperfil> {
                     ),
                     clipBehavior: Clip.antiAlias,
                     child: Image.asset(
-                      'assets/images/donoPet.jpg',
+                      'assets/images/user.jpg',
                       fit: BoxFit.cover,
                       width: 210,
                     ),
@@ -62,7 +62,7 @@ class _UserperfilState extends State<Userperfil> {
                             Text(
                               'Jorge Mendes',
                               style:
-                                  TextStyle(fontSize: 28, color: Colors.blue),
+                                  TextStyle(fontSize: 32, color: Colors.blue),
                             ),
                           ],
                         ),
@@ -82,7 +82,7 @@ class _UserperfilState extends State<Userperfil> {
                                     size: 32,
                                   ),
                                   Text(
-                                    'California(2,5km)',
+                                    'Tel Aviv',
                                     style: TextStyle(
                                       fontSize: 22,
                                       color: Color.fromARGB(80, 0, 0, 0),

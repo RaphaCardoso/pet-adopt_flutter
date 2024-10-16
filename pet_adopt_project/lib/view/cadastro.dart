@@ -36,7 +36,7 @@ class _RegisterState extends State<Register> {
             alignment: Alignment.center,
             height: 100,
             child: const Text(
-              'Cadastro',
+              'Register',
               style: TextStyle(
                 color: Colors.white, // Cor do texto para melhor visibilidade
                 fontWeight: FontWeight.bold,
@@ -141,7 +141,7 @@ class _RegisterState extends State<Register> {
                                 );
                               },
                               child: const Text(
-                                'Cadastrar',
+                                'Register',
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,

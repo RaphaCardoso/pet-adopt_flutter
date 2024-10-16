@@ -55,7 +55,7 @@ class _DetailsPetState extends State<DetailsPet> {
           ),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 550,
+              height: 500,
               width: double.infinity,
               child: Column(
                 children: [
@@ -278,9 +278,69 @@ class _DetailsPetState extends State<DetailsPet> {
                   Container(
                     width: 400,
                     height: 100,
-                    color: Colors.amber,
-                    child: const Row(
-                      children: [],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(left: 10, right: 10),
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(140),
+                            ),
+                          ),
+                          clipBehavior: Clip
+                              .antiAlias, // Necessário para o Container recortar a imagem
+                          child: Image.asset(
+                            'assets/images/user.jpg', // Substitua pelo caminho da sua imagem
+                            fit: BoxFit.cover,
+                            width: 100,
+                          ),
+                        ),
+                        const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Owner by:',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color.fromARGB(120, 0, 0, 0)),
+                            ),
+                            Text(
+                              'Jorge Mendes',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.black),
+                            )
+                          ],
+                        ),
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(140),
+                            ),
+                            color: Colors.deepPurple[100],
+                          ),
+                          child: const Icon(
+                            Icons.phone,
+                            size: 30,
+                          ),
+                        ),
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(140),
+                            ),
+                            color: Colors.deepPurple[100],
+                          ),
+                          child: const Icon(
+                            Icons.message_outlined,
+                            size: 30,
+                          ),
+                        )
+                      ],
                     ),
                   )
                 ],
